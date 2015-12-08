@@ -24,10 +24,12 @@ public class SanwuUMGExtender : ModuleRules
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
+                "Core",
 				"CoreUObject",
 				"Engine",
 				"Slate",
 				"SlateCore",
+                "UMG"
 			});
 		DynamicallyLoadedModuleNames.AddRange(
 			new string[]
