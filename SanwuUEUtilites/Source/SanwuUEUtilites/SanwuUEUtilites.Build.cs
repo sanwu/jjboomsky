@@ -26,20 +26,12 @@ public class SanwuUEUtilites : ModuleRules
                 "Core",
 				"Projects",
 				"InputCore",
-				"UnrealEd",
-				"LevelEditor",
 				"CoreUObject",
 				"Engine",
 				"Slate",
 				"SlateCore",
                 "HTTP",
-                "Networking"
-			});
-		DynamicallyLoadedModuleNames.AddRange(
-			new string[]
-			{
-				// ... add any modules that your module loads dynamically here ...
-			}
-			);
+                "Networking",
+            });
 	}
 }

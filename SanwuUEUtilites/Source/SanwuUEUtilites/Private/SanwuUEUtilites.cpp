@@ -5,8 +5,6 @@
 #include "SlateBasics.h"
 #include "SlateExtras.h"
 
-#include "LevelEditor.h"
-
 static const FName SanwuUEUtilitesTabName("SanwuUEUtilites");
 
 #define LOCTEXT_NAMESPACE "FSanwuUEUtilitesModule"
