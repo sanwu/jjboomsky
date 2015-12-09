@@ -32,6 +32,8 @@ public class SanwuUEUtilites : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
+                "HTTP",
+                "Networking"
 			});
 		DynamicallyLoadedModuleNames.AddRange(
 			new string[]
