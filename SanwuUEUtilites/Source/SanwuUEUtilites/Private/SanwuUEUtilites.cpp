@@ -1,4 +1,4 @@
-// Copyright 1998-2015 Sanwu Games, Inc. All Rights Reserved.
+﻿// Copyright 1998-2015 Sanwu Games, Inc. All Rights Reserved.
 
 #include "SanwuUEUtilitesPrivatePCH.h"
 

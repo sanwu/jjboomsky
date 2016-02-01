@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "HttpHelperCallProxyBase.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHttpRequestDelegate);
