@@ -1,24 +1,24 @@
 {
-	"FileVersion": 3,
-	"Version": 1,
-	"VersionName": "1.0",
-	"FriendlyName": "SanwuUMGExtender",
-	"Description": "",
-	"Category": "Other",
-	"CreatedBy": "Sanwu.org",
-	"CreatedByURL": "",
-	"DocsURL": "",
-	"MarketplaceURL": "",
-	"SupportURL": "",
-	"Modules": [
-		{
-			"Name": "SanwuUMGExtender",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		}
-	],
-	"EnabledByDefault": true,
-	"CanContainContent": false,
-	"IsBetaVersion": false,
-	"Installed": false
+  "CanContainContent": false,
+  "Category": "Sanwu",
+  "CreatedBy": "Sanwu.org",
+  "CreatedByURL": "",
+  "Description": "",
+  "DocsURL": "",
+  "EnabledByDefault": true,
+  "FileVersion": 3,
+  "FriendlyName": "SanwuUMGExtender",
+  "Installed": false,
+  "IsBetaVersion": false,
+  "MarketplaceURL": "",
+  "Modules": [
+    {
+      "LoadingPhase": "Default",
+      "Name": "SanwuUMGExtender",
+      "Type": "Runtime"
+    }
+  ],
+  "SupportURL": "",
+  "Version": 1,
+  "VersionName": "1.0"
 }

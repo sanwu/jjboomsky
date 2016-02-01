@@ -1,4 +1,4 @@
-// Copyright 1998-2016 Sawnu Games, Inc. All Rights Reserved.
+﻿// Copyright 1998-2016 Sawnu Games, Inc. All Rights Reserved.
 
 #pragma once
 
