@@ -1,24 +1,29 @@
 {
-  "FileVersion": 3,
-  "Version": 1,
-  "VersionName": "1.0",
-  "FriendlyName": "SanwuUEUtilites",
-  "Description": "",
-  "Category": "Other",
-  "CreatedBy": "",
+  "CanContainContent": false,
+  "Category": "Sanwu",
+  "CreatedBy": "Sanwu.org",
   "CreatedByURL": "",
+  "Description": "",
   "DocsURL": "",
+  "EnabledByDefault": true,
+  "FileVersion": 3,
+  "FriendlyName": "SanwuUEUtilites",
+  "Installed": true,
+  "IsBetaVersion": false,
   "MarketplaceURL": "",
-  "SupportURL": "",
   "Modules": [
     {
       "Name": "SanwuUEUtilites",
       "Type": "Runtime",
       "LoadingPhase": "Default"
+    },
+    {
+      "Name": "SanwuUEUtilitesSupport",
+      "Type": "Editor",
+      "LoadingPhase": "Default"
     }
   ],
-	"EnabledByDefault": true,
-	"CanContainContent": false,
-	"IsBetaVersion": false,
-	"Installed": true
+  "SupportURL": "",
+  "Version": 1,
+  "VersionName": "1.0"
 }
