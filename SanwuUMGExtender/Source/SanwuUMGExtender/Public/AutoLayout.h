@@ -1,7 +1,9 @@
 ﻿// Copyright 1998-2016 Sanwu Games, Inc. All Rights Reserved.
 #pragma once
 #include "Components/ContentWidget.h"
+#include "SAutoLayout.h"
 #include "AutoLayout.generated.h"
+
 /**
 * AutoLayout 是一个盛放对象的容器。 
 * 当AutoLayout的宽高发生变化时，里面的子对象会自动适应
