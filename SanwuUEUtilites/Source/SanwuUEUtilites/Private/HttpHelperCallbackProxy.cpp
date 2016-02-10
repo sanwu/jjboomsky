@@ -7,6 +7,7 @@ UHttpHelperCallbackProxy::UHttpHelperCallbackProxy(const FObjectInitializer& Obj
 UHttpHelperCallbackProxy* UHttpHelperCallbackProxy::SendHttpRequest(FString URL, EHttpType HttpType)
 {
 	UHttpHelperCallbackProxy* Proxy = NewObject<UHttpHelperCallbackProxy>();
+	Proxy->SetFlags(RF_StrongRefOnFrame);
 	return Proxy;
 }
 void UHttpHelperCallbackProxy::Activate()

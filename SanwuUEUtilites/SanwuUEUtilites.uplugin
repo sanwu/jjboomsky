@@ -16,11 +16,6 @@
       "Name": "SanwuUEUtilites",
       "Type": "Runtime",
       "LoadingPhase": "Default"
-    },
-    {
-      "Name": "SanwuUEUtilitesSupport",
-      "Type": "Editor",
-      "LoadingPhase": "Default"
     }
   ],
   "SupportURL": "",
