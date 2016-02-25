@@ -122,7 +122,7 @@ public:
 	}
 private:
 	mutable FVector2D areaSize;
-	mutable float areaHeight;
+	mutable float areaHeight = 100;
 	FMargin contentMargin;
 
 };

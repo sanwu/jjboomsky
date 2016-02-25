@@ -36,6 +36,7 @@ TSharedRef<FSlateStyleSet>FSanwuUMGExtenderStyle::Create()
 	TSharedRef<FSlateStyleSet> Style = MakeShareable(new FSlateStyleSet("SanwuUMGExtenderStyle"));
 	Style->SetContentRoot(IPluginManager::Get().FindPlugin("SanwuUMGExtender")->GetBaseDir() / TEXT("Resources"));
 	Style->Set("Widget.AutoLayoutIcon", new IMAGE_BRUSH(TEXT("imags/AutoLayoutIcon"), Icon16x16));
+	Style->Set("Widget.AutoFoldingIcon", new IMAGE_BRUSH(TEXT("images/AutoFoldingIcon"), Icon16x16));
 	
 	return Style;
 }

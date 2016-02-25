@@ -1,6 +1,5 @@
 ﻿#include "SanwuUMGExtenderPrivatePCH.h"
 #include "SAutoLayout.h"
-#include "SBoxPanel.h"
 
 void SAutoLayout::Construct(const FArguments& InArgs)
 {

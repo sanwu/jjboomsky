@@ -15,7 +15,7 @@ void UAutoLayout::ReleaseSlateResources(bool bReleaseChildren)
 }
 TSharedRef<SWidget> UAutoLayout::RebuildWidget()
 {
-	TSharedPtr<SButton> btn = SNew(SButton);
+	TSharedPtr<SAutoLayout> btn = SNew(SAutoLayout);
 	return btn->AsShared();
 }
 void UAutoLayout::SynchronizeProperties()
