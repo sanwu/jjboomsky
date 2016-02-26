@@ -5,10 +5,14 @@
 #include "AutoFolding.generated.h"
 
 UCLASS()
-class SANWUUMGEXTENDER_API UAutoFolding : public UAutoLayout
+class SANWUUMGEXTENDER_API UAutoFolding : public UPanelWidget
 {
 	GENERATED_UCLASS_BODY()
 public:
+
+	UFUNCTION(BlueprintCallable, Category = "AutoFolding")
+	UAutoFoldingSlot* AddChildToAutoFolding(UWidget* Content);
+
 	virtual void SynchronizeProperties() override;
 	virtual void ReleaseSlateResources(bool bReleaseChildren) override;
 	virtual void PostLoad() override;
@@ -26,4 +30,6 @@ protected:
 protected:
 	TSharedPtr<class SAutoFolding> MyAutoFolding;
 	virtual TSharedRef<SWidget> RebuildWidget() override;
+
+	bool b_DoOnce = false;
 };

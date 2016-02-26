@@ -18,6 +18,7 @@ void SAutoFolding::Construct(const FArguments& InArgs)
 
 void SAutoFolding::OnArrangeChildren(const FGeometry& AllottedGeometry, FArrangedChildren& ArrangedChildren) const
 {
+	//这里处理添加到content里面的逻辑，对齐方式，显示方式
 	areaSize = AllottedGeometry.GetLocalSize();
 	
 	float startX = contentMargin.Left;
@@ -30,8 +31,6 @@ void SAutoFolding::OnArrangeChildren(const FGeometry& AllottedGeometry, FArrange
 		ArrangedChildren.AddWidget(ChildVisibility, AllottedGeometry.MakeChild(CurChild.GetWidget(), FVector2D(startX, startY), FVector2D(size.X, size.Y)));
 	}
 }
-
-
 
 FVector2D SAutoFolding::ComputeDesiredSize(float) const
 {
