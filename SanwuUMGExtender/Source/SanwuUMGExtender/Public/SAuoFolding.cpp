@@ -1,4 +1,5 @@
 #include "SanwuUMGExtenderPrivatePCH.h"
+#include "SanwuUMGExtenderStyle.h"
 #include "SAutoFolding.h"
 
 void SAutoFolding::Construct(const FArguments& InArgs)
@@ -14,7 +15,21 @@ void SAutoFolding::Construct(const FArguments& InArgs)
 	{
 		b_HaveChild = true;
 	}
+	InitFoldingTitle();
+//	SAutoFolding::AddSlot().AttachWidget(SNew(SButton));
 }
+
+void SAutoFolding::InitFoldingTitle()
+{
+	TSharedRef<SHorizontalBox> Sp = SNew(SHorizontalBox);
+	Sp->AddSlot()
+		[
+			SNew(SImage)
+		//	._Image(FSanwuUMGExtenderStyle::Get().GetBrush("Widget.EmlargeIcon"))
+		];
+	SAutoFolding::AddSlot().AttachWidget(Sp);
+}
+
 
 void SAutoFolding::OnArrangeChildren(const FGeometry& AllottedGeometry, FArrangedChildren& ArrangedChildren) const
 {

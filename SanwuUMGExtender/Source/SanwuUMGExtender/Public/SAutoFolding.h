@@ -139,7 +139,7 @@ public:
 public:
 	virtual void OnArrangeChildren(const FGeometry& AllottedGeometry, FArrangedChildren& ArrangedChildren) const override;
 	virtual FVector2D ComputeDesiredSize(float) const override;
-
+	virtual void InitFoldingTitle();
 private:
 	FMargin contentMargin;
 	mutable FVector2D areaSize;

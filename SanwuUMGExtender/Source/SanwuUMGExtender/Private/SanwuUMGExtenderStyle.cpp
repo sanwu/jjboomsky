@@ -30,6 +30,7 @@ FName FSanwuUMGExtenderStyle::GetStyleSetName()
 #define OTF_FONT( RelativePath, ... ) FSlateFontInfo( Style->RootToContentDir( RelativePath, TEXT(".otf") ), __VA_ARGS__ )
 
 const FVector2D Icon16x16(16.f, 16.f);
+const FVector2D Icon50x50(50.f, 50.f);
 
 TSharedRef<FSlateStyleSet>FSanwuUMGExtenderStyle::Create()
 {
@@ -37,6 +38,8 @@ TSharedRef<FSlateStyleSet>FSanwuUMGExtenderStyle::Create()
 	Style->SetContentRoot(IPluginManager::Get().FindPlugin("SanwuUMGExtender")->GetBaseDir() / TEXT("Resources"));
 	Style->Set("Widget.AutoLayoutIcon", new IMAGE_BRUSH(TEXT("imags/AutoLayoutIcon"), Icon16x16));
 	Style->Set("Widget.AutoFoldingIcon", new IMAGE_BRUSH(TEXT("images/AutoFoldingIcon"), Icon16x16));
+	Style->Set("Widget.EmlargeIcon", new IMAGE_BRUSH(TEXT("images/a-emlarge-"), Icon50x50));
+	Style->Set("Widget.ReduceIcon", new IMAGE_BRUSH(TEXT("images/a-reduce-"), Icon50x50));
 	
 	return Style;
 }
