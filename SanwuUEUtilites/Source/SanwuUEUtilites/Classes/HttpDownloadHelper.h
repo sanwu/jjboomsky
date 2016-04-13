@@ -32,6 +32,10 @@ private:
 	FString fileName;//保存到本地的文件名
 	FString DirctoryPath;//保存路径（文件夹）
 
+	int32 ByteDownloaded = 0;
+	int32 ByteSaved = 0;
+	
+
 	//HTTP请求完成或中断
 	void HandleFileRequest(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded);
 
