@@ -36,7 +36,7 @@ void UHttpDownloadHelper::HandleFileRequest(FHttpRequestPtr HttpRequest, FHttpRe
 }
 void UHttpDownloadHelper::HandleFileProgress(FHttpRequestPtr HttpRequest, int32 UploadTotal, int32 DownloadTotal)
 {
-	int32 Length = HttpRequest->GetResponse()->GetContentLength();
+	int32 Length = HttpRequest->GetResponse()->GetContentLength();//这里获取的时候实时加载的大小，不是总资源大小，算百分比有问题！
 	int32 ContentLength = HttpRequest->GetResponse()->GetContent().Num();
 
 	ByteDownloaded = DownloadTotal;
@@ -44,7 +44,7 @@ void UHttpDownloadHelper::HandleFileProgress(FHttpRequestPtr HttpRequest, int32 
 	{
 		TArray<uint8>Emp;
 		TArray<uint8> & NeedSaveData = Emp;
-		//Todo �ֶα��棬����ÿ�ν������ݵ�ʱ���ж�һ�£�������۵����ݴ��200KB���ͱ���һ�¡�
+		//Todo 分段保存，就是每次接收数据的时候判断一下，如果积累的数据存过200KB，就保存一下。
 		//HttpRequest->GetResponse()->GetContent().CopyToEmpty(&NeedSaveData, ByteSaved, 1024 * 200);
 	}
 
