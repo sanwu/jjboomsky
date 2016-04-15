@@ -21,7 +21,7 @@ public:
 private:
 	UHttpDownloadManager* Manager;
 	
-
+	void WriteDataToFile(const TArray<uint8>Data);
 	void FetchMission();
 	void HandleMissonComplete(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded);
 };
