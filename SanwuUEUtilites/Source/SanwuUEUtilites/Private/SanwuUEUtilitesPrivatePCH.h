@@ -4,5 +4,3 @@
 
 #include "SanwuUEUtilites.h"
 #include "CoreUObject.h"
-
-#include "HttpHelperCallProxyBase.h"

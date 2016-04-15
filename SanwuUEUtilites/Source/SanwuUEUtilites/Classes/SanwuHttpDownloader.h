@@ -1,8 +1,8 @@
 #pragma once
 #include "IHttpRequest.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
-#include "HttpDownloadManager.h"
-#include "HttpDownloader.generated.h"
+#include "SanwuHttpDownloadManager.h"
+#include "SanwuHttpDownloader.generated.h"
 
 UCLASS()
 class UHttpDownloader : public UBlueprintAsyncActionBase
@@ -21,7 +21,7 @@ public:
 private:
 	UHttpDownloadManager* Manager;
 	
-	void WriteDataToFile(const TArray<uint8>Data);
+
 	void FetchMission();
 	void HandleMissonComplete(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded);
 };

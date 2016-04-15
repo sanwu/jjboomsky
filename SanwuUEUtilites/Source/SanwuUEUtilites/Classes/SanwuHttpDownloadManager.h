@@ -1,7 +1,7 @@
 #pragma once
 #include "IHttpRequest.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
-#include "HttpDownloadManager.generated.h"
+#include "SanwuHttpDownloadManager.generated.h"
 /*
 下载文件到本地
 */

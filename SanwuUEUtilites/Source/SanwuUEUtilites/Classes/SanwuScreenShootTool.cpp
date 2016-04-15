@@ -1,7 +1,7 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "SanwuUEUtilitesPrivatePCH.h"
-#include "ScreenShootTool.h"
+#include "SanwuScreenShootTool.h"
 #include "Engine.h"
 
 FString UScreenShootTool::TakeScreenShoot(FString picName,bool bUnique)

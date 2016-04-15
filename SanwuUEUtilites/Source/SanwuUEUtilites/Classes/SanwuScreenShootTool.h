@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "ScreenShootTool.generated.h"
+#include "SanwuScreenShootTool.generated.h"
 
 /**
  * 这是一个用来实现蓝图里截图功能的扩展
