@@ -31,17 +31,47 @@ void UHttpDownloader::FetchMission()
 }
 void UHttpDownloader::HandleMissonComplete(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded)
 {
-	FString EndWritePointStr;
-	FString StartWritePointStr;
-	MissonContent.Split("-",&StartWritePointStr, &EndWritePointStr);
-	StartWritePoint=FCString::Atoi(*StartWritePointStr);
-	UE_LOG(LogHttpDownloader, Warning, TEXT("Mission %s Complete"), *MissonContent);
-	if (FFileHelper::SaveArrayToFile(HttpResponse->GetContent(), *DestinationPath, &IFileManager::Get(), (uint32)StartWritePoint)) {
-		Manager->HandlePieceDownload(HttpResponse->GetContentLength());
-		FetchMission();
+	
+	if (bSucceeded)// 
+	{
+		FString EndWritePointStr;
+		FString StartWritePointStr;
+		FString ByteFlagStr;
+		MissonContent.Split("-", &StartWritePointStr, &EndWritePointStr);
+		StartWritePointStr.Split("bytes=", &ByteFlagStr, &EndWritePointStr);
+		StartWritePoint = FCString::Atoi(*EndWritePointStr);
+
+		WriteDataToFile(HttpResponse->GetContent());
+		return;
+	}
+	else {
+		//下载不成功以后的处理
+		// Todo 把任务交还任务池，并重新下载
+	}
+
+	
+}
+void UHttpDownloader::WriteDataToFile(const TArray<uint8>Data)
+{
+	FILE *Stream;
+	if (fopen_s(&Stream, TCHAR_TO_UTF8(*DestinationPath), "rb+") == 0) {
+		
+		fseek(Stream, StartWritePoint,SEEK_SET);
+		
+		if (fwrite((char*)Data.GetData(), sizeof(char), Data.Num(), Stream) > 0)
+		{
+			fclose(Stream);
+			UE_LOG(LogHttpDownloader, Warning, TEXT("Write %s Complete  Size=%d"), *MissonContent, Data.Num());
+			Manager->HandlePieceDownload(Data.Num());
+			FetchMission();
+		}else{
+			UE_LOG(LogHttpDownloader, Error, TEXT("Write %s Fail  Size=%d"), *MissonContent, Data.Num());
+		}
+		
+		
 	}
 	else {
 		UE_LOG(LogHttpDownloader, Error, TEXT("Mission %s Write to file fail"), *MissonContent);
+		WriteDataToFile(Data);
 	}
-	
 }
