@@ -2,9 +2,6 @@
 #include "IHttpRequest.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
 #include "SanwuHttpRequestHelper.generated.h"
-/*
-下载文件到本地
-*/
 
 using namespace UF;
 using namespace UP;
@@ -34,6 +31,6 @@ public:
 public:
 
 private:
-	void Start(FString url, SanwuHttpRequestType Type, FString Content);
+	void Start(FString URL, SanwuHttpRequestType Type, FString Content);
 	void HandleRequestComplete(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded);
 };
