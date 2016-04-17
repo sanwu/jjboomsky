@@ -13,7 +13,4 @@ FString UScreenShootTool::TakeScreenShoot(FString picName,bool bUnique)
 	ResultStr = FPaths::GetBaseFilename(ResultStr, true);
 	return ResultStr+".png";
 }
-FString UScreenShootTool::GetBaseScreenShotPath()
-{
-	return  FPaths::ConvertRelativePathToFull(FPaths::ScreenShotDir());
-}
+

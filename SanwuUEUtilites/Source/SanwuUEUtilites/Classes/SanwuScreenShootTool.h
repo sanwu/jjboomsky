@@ -26,9 +26,5 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Sanwu|SanwuUEUtilites")
 	static FString TakeScreenShoot(FString picName,bool bUnique=true);
 
-	/**
-	获取截图默认保存的路径
-	*/
-	UFUNCTION(BlueprintCallable, Category = "Sanwu|SanwuUEUtilites")
-	static FString GetBaseScreenShotPath();
+	
 };
