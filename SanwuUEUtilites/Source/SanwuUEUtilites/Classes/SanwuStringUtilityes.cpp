@@ -10,12 +10,18 @@ TArray<FString> USanwuStringUtilityes::SplitStringToArray(FString SRC, FString A
 		FString leftStr;
 		FString rightStr;
 		SRC.Split(Arg, &leftStr, &rightStr, ESearchCase::CaseSensitive);
-		result.Add(leftStr);
+		if (leftStr.Len()>0)
+		{
+			result.Add(leftStr);
+		}
 		result.Append(SplitStringToArray(rightStr, Arg));
 		return result;
 	}
 	else {
-		result.Add(SRC);
+		if (SRC.Len()>0)
+		{
+			result.Add(SRC);
+		}
 		return result;
 	}
 }
