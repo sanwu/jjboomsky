@@ -4,7 +4,9 @@
 
 #include "SlateBasics.h"
 #include "SlateExtras.h"
+#include "Runtime/Slate/Private/Framework/Docking/DockingPrivate.h"
 
+#include "TabManager.h"
 #include "SanwuBPGraphShotStyle.h"
 #include "SanwuBPGraphShotCommands.h"
 
@@ -16,6 +18,7 @@
 static const FName SanwuBPGraphShotTabName("SanwuBPGraphShot");
 
 #define LOCTEXT_NAMESPACE "FSanwuBPGraphShotModule"
+DEFINE_LOG_CATEGORY_STATIC(LogBPShot, Warning, All);
 
 void FSanwuBPGraphShotModule::StartupModule()
 {
@@ -47,22 +50,35 @@ void FSanwuBPGraphShotModule::OnMainFrameLoad(TSharedPtr<SWindow> InRootWindow, 
 }
 void FSanwuBPGraphShotModule::ShutdownModule()
 {
-	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
-	// we call this function before unloading the module.
 	FSanwuBPGraphShotStyle::Shutdown();
-
 	FSanwuBPGraphShotCommands::Unregister();
 }
 
 void FSanwuBPGraphShotModule::PluginButtonClicked()
 {
-	// Put your "OnButtonClicked" stuff here
-	FText DialogText = FText::Format(
-							LOCTEXT("PluginButtonDialogText", "Add code to {0} in {1} to override this button's actions"),
-							FText::FromString(TEXT("FSanwuBPGraphShotModule::PluginButtonClicked()")),
-							FText::FromString(TEXT("SanwuBPGraphShot.cpp"))
-					   );
-	FMessageDialog::Open(EAppMsgType::Ok, DialogText);
+	TSharedPtr<SDockTab>Tab=FGlobalTabmanager::Get()->GetActiveTab();
+	TSharedPtr<class SDockingArea>TabDockingArea= Tab->GetDockArea();
+	TArray<TSharedRef<SDockTab>>AllTab= TabDockingArea->GetAllChildTabs();
+
+	for (TSharedRef<SDockTab>TabIt : AllTab)
+	{
+		TSharedRef<SWidget>TabContent = TabIt->GetContent();
+		//UE_LOG(LogBPShot, Warning, TEXT("%s  -> %s %d  %d  %d"), *(TabIt->GetTabLabel().ToString()), *(TabContent->ToString()),TabIt->IsForeground(),TabIt->IsVolatile(),TabIt->IsVolatileIndirectly());
+		//SGraphEditor
+		
+		if (TabIt->IsForeground()&& TabContent->ToString().Contains("SGraphEditor"))
+		{
+			UE_LOG(LogBPShot, Warning, TEXT("%s  -> %s "), *(TabIt->GetTabLabel().ToString()), *(TabContent->ToString()));
+		}
+		
+	}
+
+
+	FText TabName = Tab->GetTabLabel();
+	TSharedPtr<SWindow>TabParentWin = Tab->GetParentWindow();
+	TSharedPtr<SDockingTabWell> TabParentWell = Tab->GetParent();
+	
+	
 }
 
 
