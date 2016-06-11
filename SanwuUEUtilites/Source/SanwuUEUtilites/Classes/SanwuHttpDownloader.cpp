@@ -1,5 +1,6 @@
 #include "SanwuUEUtilitesPrivatePCH.h"
 #include "SanwuHttpDownloader.h"
+#include "SanwuHttpDownloadManager.h"
 #include "Http.h"
 DEFINE_LOG_CATEGORY_STATIC(LogHttpDownloader, Warning, All);
 UHttpDownloader::UHttpDownloader(const FObjectInitializer& ObjectInitializer)
