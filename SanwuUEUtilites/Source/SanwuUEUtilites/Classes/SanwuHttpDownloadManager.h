@@ -1,6 +1,7 @@
 #pragma once
 #include "IHttpRequest.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
+#include "SanwuHttpDownloaderThread.h"
 #include "SanwuHttpDownloadManager.generated.h"
 /*
 下载文件到本地
@@ -34,6 +35,9 @@ public:
 	FString GetMissonContent();
 	FString GetDestinationPath();
 	void HandlePieceDownload(int32 DownloadedByte);
+	float DownloadPercent;
+	void HandMissionPartComplete();
+	TArray<FString>MissionPool;//任务池
 private:
 
 	void GetFileSize();
@@ -45,12 +49,17 @@ private:
 	//**************Parent************
 	int32 FileTotalSize = 0;//文件总大小
 	int32 FileDownloadedSize = 0;
-	TArray<FString>MissionPool;//任务池
+	
 
 	static UHttpDownloadManager* Manager;
 	//HTTP请求完成或中断
 	void HandleGetFileSize(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded);
+	void UpdateTimer();
+	FTimerHandle TimerHandle;
 
-	//把接收到的二进制数据保存到指定的文件里
-	void SaveByteToFile(FHttpRequestPtr HttpRequest, int32 UploadTotal, int32 DownloadTotal);
+	UWorld* GameWorld;
+	FCriticalSection MissionPoolCriticalSection;
+	int32 MissionPartNum;
+	int32 MissionPartCompleteNum;
+	
 };
