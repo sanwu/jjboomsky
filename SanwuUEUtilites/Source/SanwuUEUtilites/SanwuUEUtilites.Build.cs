@@ -32,6 +32,7 @@ public class SanwuUEUtilites : ModuleRules
 				"SlateCore",
                 "HTTP",
                 "Networking",
+                "ImageWrapper"
             });
 	}
 }
