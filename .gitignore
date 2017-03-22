@@ -26,3 +26,7 @@
 *.exe
 *.out
 *.app
+SanwuUMGExtender/Intermediate/
+SanwuUEUtilites/Intermediate/
+SanwuUEUtilites/Binaries/
+SanwuUMGExtender/Binaries/

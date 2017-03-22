@@ -67,7 +67,6 @@ void FSanwuHttpDownloaderThread::WriteDataToFile(const TArray<uint8>Data)
 	}
 	else {
 		UE_LOG(LogHttpDownloaderThread, Error, TEXT("任务 %s 写入文件失败"),*MissionContent);
-		Sleep(200);
 		WriteDataToFile(Data);
 	}
 }
