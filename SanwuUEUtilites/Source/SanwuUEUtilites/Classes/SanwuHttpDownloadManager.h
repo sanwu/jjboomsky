@@ -12,13 +12,22 @@ using namespace UF;
 using namespace UP;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FDownloadFileDelegate, FString, DestinationPath, float, DownloadPercent);
 
+UENUM()
+enum class EDownLoadBaseDir : uint8
+{
+	GameDir,
+	EngineDir,
+	SaveDir,
+	UserDir
+};
+
 UCLASS()
 class UHttpDownloadManager : public UBlueprintAsyncActionBase
 {
 	GENERATED_UCLASS_BODY()
 public:
 	UFUNCTION(BlueprintCallable,Category="Sanwu", meta = (BlueprintInternalUseOnly = "true"))
-	static UHttpDownloadManager* DownloadFile(FString url,FString FileName,FString Dirctory);
+	static UHttpDownloadManager* DownloadFile(FString url,EDownLoadBaseDir basePath, FString relateve_path);
 
 	UPROPERTY(BlueprintAssignable)
 	FDownloadFileDelegate OnSuccess;
@@ -36,6 +45,7 @@ public:
 	FString GetDestinationPath();
 	void HandlePieceDownload(int32 DownloadedByte);
 	float DownloadPercent;
+	
 	void HandMissionPartComplete();
 	TArray<FString>MissionPool;//任务池
 private:
@@ -54,6 +64,7 @@ private:
 	static UHttpDownloadManager* Manager;
 	//HTTP请求完成或中断
 	void HandleGetFileSize(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded);
+	void HandleHttpProgress(FHttpRequestPtr req, int32 uploaded, int32 downloaded);
 	void UpdateTimer();
 	FTimerHandle TimerHandle;
 
